@@ -59,7 +59,7 @@ while(sel!=0):
 		bibliography.close()
 
 	elif(sel==4):
-		print('ok')
+		os.system("open "+path+"/refs.bib")
 
 	elif(sel==5):
 		print('--------------------------------------------\n')
