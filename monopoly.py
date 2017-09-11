@@ -4,8 +4,8 @@ from random import randint
 
 maxdig = 3
 
-numtrials = 1
-gamelen = 10000
+numtrials = 100
+gamelen = 100
 
 squares = numpy.arange(40)
 
@@ -224,7 +224,7 @@ print("|"+ws(freq[14])+space+ws(freq[36])+"|")
 print(other)
 print("|"+ws(freq[13])+space+ws(freq[37])+"|")
 print(other)
-print("|"+ws(freq[12])+space+"LT "+"|")
+print("|"+ws(freq[12])+space+ws(freq[38])+"|")
 print(other)
 print("|"+ws(freq[11])+space+ws(freq[39])+"|")
 
