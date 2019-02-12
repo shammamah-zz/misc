@@ -14,6 +14,15 @@ except Exception:
 emacs_file = f.read().replace('\n', '')
 
 ok = OrgmodeInfo(emacs_file)
-print(ok._agenda_files)
-print(ok._todo_keywords)
-print(ok._tag_names)
+
+print("Agenda files: ")
+for f in ok._agenda_files:
+    print(f)
+
+print("Todo keywords: ")
+for k in ok._todo_keywords:
+    print(k)
+
+print("Tags: ")
+for t in ok._tag_names:
+    print("Value: {} ID: {}".format(t['name'], t['id']))

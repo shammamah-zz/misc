@@ -4,19 +4,18 @@ import re
 class OrgmodeInfo(object):
 
     def __init__(self, emacs_file):
-        
+
         self._agenda_files = [
-            name for name in
-            self._get_org_data('org-agenda-files', emacs_file).split('"')
-            if name.strip(' ').strip('(') != 'list' and
-            len(name.strip(' ').strip('(').strip(')')) > 0]
+            name for name in re.findall(
+                r'\s*\"(.+?\.org)\"',
+                self._get_org_data('org-agenda-files', emacs_file)
+            )]
 
         self._todo_keywords = [
-            word for word in
-            self._get_org_data('org-todo-keywords', emacs_file).split(
-                'sequence')[1].split('"')
-            if len(word.strip(' ')) > 0 and
-            len(word.replace('(', '').replace(')', '')) > 0]
+            word for word in re.findall(
+                r'.+?\s*\"(.+?(?=\"))',
+                self._get_org_data('org-todo-keywords', emacs_file)
+            )]
 
         self._tag_names = [
             {'name': tag_info[0], 'id': tag_info[1]}
